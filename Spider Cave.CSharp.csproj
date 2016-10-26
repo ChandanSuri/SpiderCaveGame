@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\Spider Scripts\Spider Jumper\SpiderJumper.cs" />
     <Compile Include="Assets\Scripts\Spider Scripts\Spider Shooter\SpiderBullet.cs" />
     <Compile Include="Assets\Scripts\Spider Scripts\Spider Shooter\SpiderShooter.cs" />
+    <Compile Include="Assets\Scripts\Spider Scripts\Spider Walker\SpiderWalker.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath)\SyntaxTree\UnityVS\2015\UnityVS.CSharp.targets" />
 </Project>
