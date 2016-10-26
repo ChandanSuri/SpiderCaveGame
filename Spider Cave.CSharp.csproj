@@ -63,6 +63,9 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Scripts\Bouncy Scripts\Bouncy.cs" />
+    <Compile Include="Assets\Scripts\Collectables Scripts\DiamondScript.cs" />
+    <Compile Include="Assets\Scripts\Door Scripts\Door.cs" />
     <Compile Include="Assets\Scripts\Player Scripts\PlayerScript.cs" />
     <Compile Include="Assets\Scripts\Spider Scripts\Spider Jumper\SpiderJumper.cs" />
     <Compile Include="Assets\Scripts\Spider Scripts\Spider Shooter\SpiderBullet.cs" />
