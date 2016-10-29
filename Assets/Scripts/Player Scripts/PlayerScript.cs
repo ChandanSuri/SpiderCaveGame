@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class PlayerScript : MonoBehaviour {
@@ -9,8 +10,11 @@ public class PlayerScript : MonoBehaviour {
     private Rigidbody2D myBody;
     private Animator anim;
 
+    private bool moveLeft, moveRight;
+
     void Awake()
     {
+        GameObject.Find("Jump").GetComponent<Button>().onClick.AddListener(() => Jump());
         InitializeVariables();
     }
 
@@ -19,13 +23,74 @@ public class PlayerScript : MonoBehaviour {
 	}
 	
 	void FixedUpdate () {
-        PlayerWalkKeyboard();
+        PlayerWalkJoystick();
+        //PlayerWalkKeyboard();
 	}
 
     void InitializeVariables()
     {
         myBody = GetComponent<Rigidbody2D>();
         anim = GetComponent<Animator>();
+    }
+
+    public void SetMoveLeft(bool moveLeft)
+    {
+        this.moveLeft = moveLeft;
+        this.moveRight = !moveLeft;
+
+    }
+
+    public void StopMoving()
+    {
+        this.moveLeft = false;
+        this.moveRight = false;
+    }
+    void PlayerWalkJoystick()
+    {
+        float forceX = 0f;
+        float vel = Mathf.Abs(myBody.velocity.x);
+
+        if (moveRight)
+        {
+            if (vel < maxVelocity)
+            {
+                if (grounded)
+                {
+                    forceX = moveForce;
+                }
+                else
+                {
+                    forceX = moveForce * 1.1f;
+                }
+            }
+            Vector3 scale = transform.localScale;
+            scale.x = 1f;
+            transform.localScale = scale;
+
+            anim.SetBool("Walk", true);
+        }else if (moveLeft)
+        {
+            if (vel < maxVelocity)
+            {
+                if (grounded)
+                {
+                    forceX = -moveForce;
+                }
+                else
+                {
+                    forceX = -moveForce * 1.1f;
+                }
+            }
+            Vector3 scale = transform.localScale;
+            scale.x = -1f;
+            transform.localScale = scale;
+
+            anim.SetBool("Walk", true);
+        }else
+        {
+            anim.SetBool("Walk", false);
+        }
+        myBody.AddForce(new Vector2(forceX, 0));
     }
 
     void PlayerWalkKeyboard()
@@ -93,6 +158,15 @@ public class PlayerScript : MonoBehaviour {
         {
             grounded = false;
             myBody.AddForce(new Vector2(0, force));
+        }
+    }
+
+    public void Jump()
+    {
+        if (grounded)
+        {
+            grounded = false;
+            myBody.AddForce(new Vector2(0, jumpForce));
         }
     }
 
