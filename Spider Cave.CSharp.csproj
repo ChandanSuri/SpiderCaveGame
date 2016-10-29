@@ -64,8 +64,15 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assets\Scripts\Bouncy Scripts\Bouncy.cs" />
+    <Compile Include="Assets\Scripts\Camera Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\Collectables Scripts\DiamondScript.cs" />
+    <Compile Include="Assets\Scripts\Collectables Scripts\TimerAndAir.cs" />
     <Compile Include="Assets\Scripts\Door Scripts\Door.cs" />
+    <Compile Include="Assets\Scripts\Game Controllers\Gameplay Controllers\AirTimer.cs" />
+    <Compile Include="Assets\Scripts\Game Controllers\Gameplay Controllers\GameplayController.cs" />
+    <Compile Include="Assets\Scripts\Game Controllers\Gameplay Controllers\LevelTimer.cs" />
+    <Compile Include="Assets\Scripts\Game Controllers\LevelController.cs" />
+    <Compile Include="Assets\Scripts\Game Controllers\MainMenuController.cs" />
     <Compile Include="Assets\Scripts\Player Scripts\PlayerScript.cs" />
     <Compile Include="Assets\Scripts\Spider Scripts\Spider Jumper\SpiderJumper.cs" />
     <Compile Include="Assets\Scripts\Spider Scripts\Spider Shooter\SpiderBullet.cs" />
